@@ -8,10 +8,9 @@
 }
 
 .sun-container {
-  background-color: black;
   position: relative;
-  width: 200px; /* Ukuran total matahari + sinar */
-  height: 200px;
+  width: 100%; /* Ukuran total matahari + sinar */
+  height: 100%;
 }
 
 /* 1. Inti Matahari (Updated dari sebelumnya) */
