@@ -1,0 +1,57 @@
+   body {
+  background: lightgray; /* Latar gelap agar matahari terlihat */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.sun-container {
+  background-color: black;
+  position: relative;
+  width: 200px; /* Ukuran total matahari + sinar */
+  height: 200px;
+}
+
+/* 1. Inti Matahari (Updated dari sebelumnya) */
+.sun-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Sentralisasi sempurna */
+  width: 80px;
+  height: 80px;
+  background: #ffdb1a;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ffdb1a, 0 0 40px #ff8c00;
+  z-index: 2; /* Di atas sinar */
+}
+
+/* 2. Sinar SVG Bergelombang */
+.sun-beams {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Di bawah inti */
+  
+  /* Animasi Sinar Berputar Lambat */
+  animation: rotateBeams 40s linear infinite;
+}
+
+/* Gaya untuk jalur sinar di dalam SVG */
+.sun-beams use {
+  fill: none;
+  stroke: #ffdb1a; /* Warna sinar sama dengan inti */
+  stroke-width: 4; /* Ketebalan garis gelombang */
+  stroke-linecap: round; /* Ujung garis tumpul/halus */
+  opacity: 0.8;
+}
+
+/* Definisi Animasi Putaran */
+@keyframes rotateBeams {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
